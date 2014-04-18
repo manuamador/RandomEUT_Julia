@@ -34,8 +34,8 @@ end
 
 
 a=1. #EUT radius in m
-nf=10;
-freq= linspace(5e6,1e9,nf);#Frequency in Hz
+nf=20;
+freq= linspace(50e6,1e9,nf);#Frequency in Hz
 ka=2*pi*freq./c*a; #electric size, ka=2*pi/lambda*a
 
 #Radiation pattern
