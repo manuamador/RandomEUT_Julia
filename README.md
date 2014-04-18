@@ -13,3 +13,6 @@ Packages required
 * Julia 0.2+
 * PyPlot (and of course a Python 2.x distribution with matplotlib)
 
+Please note that a package like Winston instead of Pyplot can be used with minor modifications.
+
+
