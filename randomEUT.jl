@@ -88,12 +88,12 @@ t1=time()
 print(t1-t0)
 
 using PyPlot
-
+pygui(false)
 #Radiation diagram   
+figure(figsize=(10, 5))
 for u=1:nf
-	Pnorm = P[:,:,u]./maximum(P[:,:,u]);
-    figure(figsize=(10, 5))
-    pcolor(phi,theta,Pnorm')
+    	Pnorm = P[:,:,u]./maximum(P[:,:,u]);
+    	pcolor(phi,theta,Pnorm')
 	xlim(0,2*pi)
 	ylim(0,pi)
 	grid()
@@ -103,6 +103,6 @@ for u=1:nf
 	clim(0,1)
 	f=freq[u]/1e6
 	title("\$f=$f\$ MHz")
-    savefig("$u.png",bbox="tight")
-    close()
+    	savefig("$u.png",bbox="tight")
+    	clf()
 end
