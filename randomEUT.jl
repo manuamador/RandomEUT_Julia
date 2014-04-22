@@ -81,7 +81,6 @@ for t=1:nt
 end
 
 
-P=abs(Etheta).^2+abs(Ephi).^2; #power
 t1=time()
 print(t1-t0)
 
