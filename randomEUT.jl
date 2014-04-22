@@ -3,8 +3,8 @@ c = 299792458.0
 
 function Efarfield(R,theta,phi,I,f)
 	X=R*cos(phi)*sin(theta)
-    Y=R*sin(phi)*sin(theta)
-    Z=R*cos(theta)
+    	Y=R*sin(phi)*sin(theta)
+    	Z=R*cos(theta)
 	DX = X-I[1]
 	DY = Y-I[2]
 	DZ = Z-I[3]
@@ -47,10 +47,7 @@ theta=linspace(0,pi,nt);
 R = 100; #Measurement sphere radius in m
 
 
-Etheta=Array(Float32,np,nt,nf); #initialisation de $E_\theta$
-Ephi=Array(Float32,np,nt,nf); #initialisation de $E_\phi$
-Etheta=complex(Etheta);
-Ephi=complex(Ephi);
+P=Array(Float64,np,nt,nf); # Power matrix
 
 n=10; #number of radiating dipoles on the EUT
 #generate the dipoles
@@ -67,6 +64,7 @@ phas=2*pi*rand(n,1); #random phase
 
 
 for t=1:nt
+	println(t)
 	for p=1:np
 		for f=1:nf
 			Eth=0
@@ -76,12 +74,12 @@ for t=1:nt
 				Eth=Et+Eth
 				Eph=Ep+Eph
 			end
-			Etheta[p,t,f]=Eth
-			Ephi[p,t,f]=Eph
+			P[p,t,f]=abs(Eth)^2+abs(Eph)^2
 		end
 	end
 
 end
+
 
 P=abs(Etheta).^2+abs(Ephi).^2; #power
 t1=time()
