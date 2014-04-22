@@ -101,7 +101,7 @@ for u=1:nf
 	ylabel("\$\\theta\$")
 	colorbar()
 	clim(0,1)
-	f=freq[u]/1e6
+	f=round(freq[u]/1e6)
 	title("\$f=$f\$ MHz")
     	savefig("$u.png",bbox="tight")
     	clf()
