@@ -71,8 +71,8 @@ for t=1:nt
 			Eph=0
 			for i=1:n
 				Et,Ep=Efarfield(R,theta[t],phi[p],[x[i],y[i],z[i],tilt[i],azimut[i],amplitude[i],phas[i]],freq[f])
-				Eth=Et+Eth
-				Eph=Ep+Eph
+				Eth+=Et
+				Eph+=Ep
 			end
 			P[p,t,f]=abs(Eth)^2+abs(Eph)^2
 		end
